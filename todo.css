@@ -1,4 +1,4 @@
-/* Reset some base styles */
+/* Base Reset */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,21 +6,40 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f4;
-    padding: 40px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #2e2e2e;
+    min-height: 100vh;
+}
+
+
+/* Header Text */
+p {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
     color: #333;
 }
 
-p {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
+/* Container Box */
+.todo-container {
+    background: linear-gradient(135deg, #ffe7f1, #ffffff);
+
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 650px;
+    transition: all 0.3s ease-in-out;
 }
 
+/* Input Grid and List Layout */
 .todo-input-grid,
 .js-todo-list {
     display: grid;
@@ -28,7 +47,7 @@ p {
     column-gap: 15px;
     row-gap: 15px;
     width: 100%;
-    max-width: 600px;
+    margin-top: 15px;
 }
 
 .todo-input-grid {
@@ -36,53 +55,87 @@ p {
     align-items: center;
 }
 
+/* Inputs */
 .input-name,
 .date-input {
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    transition: border-color 0.3s;
+    font-size: 15px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #ccd1d9;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, background-color 0.3s;
+    width: 100%;
 }
 
 .input-name:focus,
 .date-input:focus {
-    border-color: #007bff;
+    border-color: #4a90e2;
+    background-color: #ffffff;
     outline: none;
 }
 
+/* Buttons */
 .add-button,
 .delete-button {
     padding: 10px 15px;
-    font-size: 16px;
+    font-size: 15px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    width: 100%;
 }
 
 .add-button {
-    background-color: #28a745;
+    background-color: #00b894;
     color: white;
 }
 
 .add-button:hover {
-    background-color: #218838;
+    background-color: #019170;
 }
 
 .delete-button {
-    background-color: #dc3545;
+    background-color: #ff6b6b;
     color: white;
 }
 
 .delete-button:hover {
-    background-color: #c82333;
+    background-color: #e04848;
 }
 
-/* Optional: styling for todo items if you render them */
+/* To-do Item Box */
 .todo-item {
-    background-color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 1px 3
+    background-color: #fafafa;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.todo-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .todo-input-grid,
+    .js-todo-list {
+        grid-template-columns: 1fr;
+    }
+
+    .add-button,
+    .delete-button {
+        width: 100%;
+    }
+
+    .todo-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
 }
